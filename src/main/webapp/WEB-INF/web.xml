@@ -7,4 +7,18 @@
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+
+  <servlet>
+    <servlet-name>EndpointsServlet</servlet-name>
+    <servlet-class>com.google.api.server.spi.EndpointsServlet</servlet-class>
+    <init-param>
+      <param-name>services</param-name>
+      <param-value>fr.univnantes.TinyTwittEndPoint</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EndpointsServlet</servlet-name>
+    <url-pattern>/_ah/spi/*</url-pattern>
+  </servlet-mapping>
+
 </web-app>
