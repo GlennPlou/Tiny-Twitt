@@ -23,3 +23,13 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+
+
+
+### OTHER ###
+node_modules
+.vs
+
+# e2e
+/e2e/*.js
+/e2e/*.map
