@@ -26,6 +26,15 @@ public class Twitt {
 
     public Twitt() {}
 
+    public Twitt(com.google.appengine.api.datastore.Entity e) {
+        this.idAuthor = (Long) e.getProperty("id");
+        this.nameAuthor =  (String) e.getProperty("author");
+        this.message = (String) e.getProperty("message");
+        this.date = (Date) e.getProperty("date");
+
+        buildHashtags();
+    }
+
     public Twitt(Long idAuthor, String nameAuthor, String message) {
         this.idAuthor = idAuthor;
         this.nameAuthor = nameAuthor;
