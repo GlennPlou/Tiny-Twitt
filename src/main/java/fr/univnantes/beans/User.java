@@ -2,6 +2,7 @@ package fr.univnantes.beans;
 
 import com.googlecode.objectify.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -22,7 +23,9 @@ public class User {
 
     private String lastname;
 
-    private List<Long> followers;
+    private List<Long> followers;//Liste des gens qui me suivent
+
+    private List<Long> following;//Liste des gens que je suis
 
     public User() {}
 
@@ -32,7 +35,18 @@ public class User {
         this.password = password;
         this.firstname = firstname;
         this.lastname = lastname;
+        followers = new ArrayList<>();
+        following = new ArrayList<>();
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
 
     public String getLogin() {
         return login;
@@ -78,8 +92,32 @@ public class User {
         return followers;
     }
 
+    public boolean addFollower(Long idFollower) {
+        return this.followers.add(idFollower);
+    }
+
     public void setFollowers(List<Long> followers) {
         this.followers = followers;
+    }
+
+    public List<Long> getFollowing() {
+        return following;
+    }
+
+    public void setFollowing(List<Long> following) {
+        this.following = following;
+    }
+
+    public boolean addFollowing(Long idFollowing) {
+        return this.following.add(idFollowing);
+    }
+
+    public boolean containsFollower(Long idFollower) {
+        return followers.contains(idFollower);
+    }
+
+    public boolean containsFollowing(Long idFollowing) {
+        return following.contains(idFollowing);
     }
 
 }
